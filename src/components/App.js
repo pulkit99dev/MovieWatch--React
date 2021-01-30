@@ -1,11 +1,20 @@
-import React from 'react'
+import React from 'react';
+import NavBar from './NavBar';
+import MovieCard from './MovieCard';
+import { data } from '../data';
 
-function App() {
+class App extends React.Component {
+  render(){
   return (
-    <div>
-      Project Setup
+    <div className='App'>
+      <NavBar />
+      
+      <div>
+        <MovieCard />
+      </div>
     </div>
   );
+}
 }
 
 export default App;
