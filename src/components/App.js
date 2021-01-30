@@ -16,8 +16,8 @@ class App extends React.Component {
       </div>
 
       <div className='list'>
-        {data.map(movie => (
-          <MovieCard movie={movie} />
+        {data.map((movie, index) => (
+          <MovieCard movie={movie} key={`movie-${index}`}/>
         ))}
       </div>
     </div>
