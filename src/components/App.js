@@ -9,9 +9,18 @@ class App extends React.Component {
     <div className='App'>
       <NavBar />
       
-      <div>
-        <MovieCard />
+      <div className='main'>
+      <div className='tabs'>
+          <div className='tab'>Movies</div>
+          <div className='tab'>Favourites</div>
       </div>
+
+      <div className='list'>
+        {data.map(movie => (
+          <MovieCard movie={movie} />
+        ))}
+      </div>
+    </div>
     </div>
   );
 }
