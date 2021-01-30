@@ -3,8 +3,11 @@ import React from 'react'
 class NavBar extends React.Component {
     render(){
         return (
-            <div>
-                NavBar
+            <div className='nav'>
+                <div className='search-container'>
+                    <input />
+                    <button id='search-btn'>Search</button>
+                </div>
             </div>
         );
 }
