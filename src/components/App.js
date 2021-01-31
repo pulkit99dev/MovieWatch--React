@@ -3,8 +3,24 @@ import NavBar from './NavBar';
 import MovieCard from './MovieCard';
 import { data } from '../data';
 
-class App extends React.Component {
+class App extends React.Component{
+
+  componentDidMount(){
+
+    const{store}= this.props;
+    store.subscribe(()=>{
+      console.log('Update');
+      this.forceUpdate();
+    })
+
+    store.dispatch({
+         type: 'ADD_MOVIES',
+         movies: data
+       })
+  }
+
   render(){
+    const movies = this.props.store.getState();
   return (
     <div className='App'>
       <NavBar />
@@ -16,7 +32,7 @@ class App extends React.Component {
       </div>
 
       <div className='list'>
-        {data.map((movie, index) => (
+        {movies.map((movie, index) => (
           <MovieCard movie={movie} key={`movie-${index}`}/>
         ))}
       </div>
@@ -25,5 +41,6 @@ class App extends React.Component {
   );
 }
 }
+
 
 export default App;
