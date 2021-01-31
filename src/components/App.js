@@ -2,6 +2,8 @@ import React from 'react';
 import NavBar from './NavBar';
 import MovieCard from './MovieCard';
 import { data } from '../data';
+import movies from '../reducers';
+import {addMovies} from '../actions/index'
 
 class App extends React.Component{
 
@@ -13,10 +15,7 @@ class App extends React.Component{
       this.forceUpdate();
     })
 
-    store.dispatch({
-         type: 'ADD_MOVIES',
-         movies: data
-       })
+    store.dispatch(addMovies(data))
   }
 
   render(){
